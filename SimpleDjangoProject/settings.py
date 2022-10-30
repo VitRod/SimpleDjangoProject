@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 
+from app import hello_world
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app.apps.AppConfig',
+    # 'app.apps.AppConfig',
+    'app.hello_world',
+    # 'app',
 ]
 
 MIDDLEWARE = [
@@ -51,11 +55,14 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'SimpleDjangoProject.urls'
+# ROOT_URLCONF = 'app.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR / 'app' / 'hello_world' / 'template']
+        # 'DIRS': [BASE_DIR / 'SimpleDjangoProject' / 'app/hello_world' / 'template']
+        # 'DIRS': []
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -117,7 +124,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
